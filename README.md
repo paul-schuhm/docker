@@ -2,7 +2,7 @@
 
 Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
-[Voir la progression pédagogique](./module00-presentation/cours.md).
+[Voir la progression pédagogique](./progression.md).
 
 
 ## Références, aller plus loin
