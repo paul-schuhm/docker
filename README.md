@@ -2,8 +2,19 @@
 
 Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
+- [Docker](#docker)
+  - [Modules](#modules)
+    - [Module 2](#module-2)
+  - [Références, aller plus loin](#références-aller-plus-loin)
+
+
 [Voir la progression pédagogique](./progression.md).
 
+## Modules
+
+### Module 2
+
+- [Voir les corrections, commentaires sur les TPs](./module-02/tps-corrections/)
 
 ## Références, aller plus loin
 
