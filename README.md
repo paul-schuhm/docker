@@ -7,7 +7,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ## Références, aller plus loin
 
-![](./assets/docker-up-and-running-2nd.jpeg)![](./assets/os-three-easy-pieces.jpg)
+<img src="./assets/docker-up-and-running-2nd.jpeg" height=200><img src="./assets/os-three-easy-pieces.jpg" height=200>
+
 
 - [Open Container Initiative (OCI)](https://opencontainers.org/), gouvernance pour maintenir et garantir des standards ouverts sur les formats de conteneurs et de leurs environnement d'exécution. En font partie Docker Inc., Red Hat, Google, etc.
 - [Docker: Up & Running: Shipping Reliable Containers in Production, 3rd edition](https://www.amazon.fr/Docker-Shipping-Reliable-Containers-Production/dp/1098131827/ref=pd_sbs_d_sccl_3_2/261-8003303-3459731), de Sean P Kane (Auteur), Karl Matthias (Auteur), publié chez O'Reilly, 2023. La deuxième édition (bien que quelques exemples/dépôts cassés et quelques éléments datés) est très bien également. La progression de ce cours est en grande partie basée sur la progression de cet ouvrage.
