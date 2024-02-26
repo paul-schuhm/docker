@@ -1,40 +1,4 @@
----
-marp: false
-paginate: true
-headingDivider: 2
-header:
-footer: 
----
-
-<style>
-section {
-  font-size: 1.6rem;
-  
-}
-h1,h2{
-    color: #0F91CB !important;
-}
-code{
-    color:#eb34cf;
-    /* color:black; */
-    font-weight: bold;
-}
-
-</style>
-
-##  Docker 1 - Système de conteneurs 
-
-![bg right contain](../assets/docker-logo.png)
-
-Live Campus
-
-Février 2024
-
-Paul Schuhmacher 
-
-E-mail : [contact@pschuhmacher.com](mailto:contact@pschuhmacher.com)
-
-## Programme
+## Programme/Progression pédagogique
 
 ## Présentation des systèmes de conteneur
 
