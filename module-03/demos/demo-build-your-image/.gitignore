@@ -1,0 +1,3 @@
+docker-node-hello/*
+!docker-node-hello/Dockerfile
+!docker-node-hello/Dockerfile_bk

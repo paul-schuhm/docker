@@ -1,0 +1,6 @@
+#L'install et le clean sur meme ligne (instruction), donc sur 
+#la meme couche, la, le clean va alleger l'image
+FROM fedora
+RUN dnf install -y httpd && \
+    dnf clean all
+CMD ["/usr/sbin/httpd", "-DFOREGROUND"]

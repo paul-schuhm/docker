@@ -1,0 +1,3 @@
+FROM alpine:3.19
+ENTRYPOINT ["echo", "default arg ENTRYPOINT"]
+CMD ["arg1 CMD", "arg2 CMD"]

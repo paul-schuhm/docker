@@ -5,6 +5,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 - [Docker](#docker)
   - [Modules](#modules)
     - [Module 2](#module-2)
+    - [Module 3](#module-3)
   - [Références, aller plus loin](#références-aller-plus-loin)
 
 
@@ -15,6 +16,11 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 ### Module 2
 
 - [Voir les corrections, commentaires sur les TPs](./module-02/tps-corrections/)
+
+### Module 3
+
+- [Voir les démos commentées](./module-03/demos/)
+
 
 ## Références, aller plus loin
 
