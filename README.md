@@ -19,8 +19,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ### Module 3
 
-- [Accéder aux les démos commentées](./module-03/demos/)
-- [Accéder aux les corrections, commentaires sur les TPs](./module-03/correction-tp/)
+- [Accéder aux démos commentées](./module-03/demos/)
+- [Accéder aux corrections, commentaires sur les TPs](./module-03/correction-tp/)
 
 
 ## Références, aller plus loin
