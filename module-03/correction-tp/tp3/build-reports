@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Vérifier si l'argument n'est pas fourni
+if [ -z "$1" ]; then
+    echo "Erreur: indiquer le nombre de rapports à préparer et archiver. Stop."
+    exit 1
+fi
+
+# Utiliser la valeur passée en argument pour n
+n="$1"
+
+# Création du dossier "reports" s'il n'existe pas
+mkdir -p reports
+rm reports/*
+
+# Génération des fichiers
+i=1
+while [ "$i" -le "$n" ]; do
+    filename="reports/report$(printf "%04d" "$i").txt"
+    echo "REPORT $i" > "$filename"
+    i=$((i+1))
+done
+
+# Archivage du dossier "reports"
+tar -cf reports.tar reports
+mv reports.tar reports/
+
+echo "Préparation des $n rapports et archivage terminés."

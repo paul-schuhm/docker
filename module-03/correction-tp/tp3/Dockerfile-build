@@ -1,0 +1,4 @@
+FROM alpine:latest
+WORKDIR /
+ADD ./build-reports /build-reports
+ENTRYPOINT ["./build-reports"]

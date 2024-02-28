@@ -1,0 +1,8 @@
+FROM gcc:4.9 as builder
+WORKDIR /usr/src/myapp
+COPY main.c /usr/src/myapp
+RUN gcc -o guess-my-number -static main.c
+
+FROM scratch
+COPY --from=builder /usr/src/myapp/guess-my-number /guess-my-number
+CMD ["/guess-my-number"]
