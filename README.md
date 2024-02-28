@@ -15,11 +15,12 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ### Module 2
 
-- [Voir les corrections, commentaires sur les TPs](./module-02/tps-corrections/)
+- [Accéder aux corrections, commentaires sur les TPs](./module-02/tps-corrections/)
 
 ### Module 3
 
-- [Voir les démos commentées](./module-03/demos/)
+- [Accéder aux les démos commentées](./module-03/demos/)
+- [Accéder aux les corrections, commentaires sur les TPs](./module-03/correction-tp/)
 
 
 ## Références, aller plus loin
