@@ -14,6 +14,7 @@ Créer votre propre projet et préparez-le.
   - [Rediriger les logs](#rediriger-les-logs)
   - [Override les variables d'environnement de Docker Compose](#override-les-variables-denvironnement-de-docker-compose)
   - [Un seul ou plusieurs fichiers ? Démo d'une méthode basée sur le merge](#un-seul-ou-plusieurs-fichiers--démo-dune-méthode-basée-sur-le-merge)
+  - [Quelle méthode choisir ?](#quelle-méthode-choisir-)
   - [Docker compose et l'orchestration](#docker-compose-et-lorchestration)
 
 
@@ -98,7 +99,7 @@ FLASK_DEBUG=false
       MA_VARIABLE: ${MA_VARIABLE}
 ~~~
 
-Inspecter variable d'env sur le conteneur :
+Inspecter variable d'env. sur le conteneur :
 
 ~~~bash
 docker compose up
@@ -117,7 +118,7 @@ puis
 
 `docker compose up`
 
-> Observer la reconstruction automatique du conteneur au changement d'une variable d'environnement.
+Observer la reconstruction automatique du conteneur au changement d'une variable d'environnement.
 
 > La variable d'env du `.env` n'est injectée que si elle est utilisée dans le compose ou par le conteneur.
 
@@ -251,8 +252,6 @@ docker compose events > dengine.log &
 
 ## Override les variables d'environnement de Docker Compose
 
-Voir les variables
-
 Dans un fichier `.env` a la racine du projet :
 
 ~~~INI
@@ -261,9 +260,9 @@ COMPOSE_PROFILES=frontend
 
 ## Un seul ou plusieurs fichiers ? Démo d'une méthode basée sur le merge
 
-https://docs.docker.com/compose/multiple-compose-files/merge/
+Méthode [basée sur le merge](https://docs.docker.com/compose/multiple-compose-files/merge/).
 
-Créer un fichier `compose.dev.yaml` et  `compose.prod.yaml` en plus du fichier de base `compose.yaml`.
+Créer un fichier `compose.dev.yaml` et `compose.prod.yaml` en plus du fichier de base `compose.yaml` :
 
 ~~~yaml
 #compose.dev.yaml
@@ -283,7 +282,7 @@ services:
       MA_VARIABLE: ${MA_VARIABLE_PROD}
 ~~~
 
-Et toujours un de base `compose.yaml` (config par défaut, a ne jamais utiliser seul)
+Et toujours un de base `compose.yaml` (config par défaut, à ne jamais utiliser seul)
 
 ~~~yaml
 #compose.yaml
@@ -324,6 +323,8 @@ docker exec -it composetest-web-1 env
 ~~~
 
 > L'ordre est **important** : docker compose -f compose.prod.yml -f compose.yml est != de docker compose -f compose.yml -f compose.prod.yml
+
+## Quelle méthode choisir ?
 
 Le mieux c'est d'essayer *vous-même* les différentes méthodes (heritage, include, merge, combinaison des mécanismes,...) :
 - Faites un **mini projet minimal** pour chaque méthode (avec 2 ou 3 services par exemple)
