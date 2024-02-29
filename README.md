@@ -6,6 +6,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
   - [Modules](#modules)
     - [Module 2](#module-2)
     - [Module 3](#module-3)
+    - [Module 6 : Compose](#module-6--compose)
   - [Références, aller plus loin](#références-aller-plus-loin)
 
 
@@ -22,6 +23,9 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 - [Accéder aux démos commentées](./module-03/demos/)
 - [Accéder aux corrections, commentaires sur les TPs](./module-03/correction-tp/)
 
+### Module 6 : Compose
+
+- [Accéder aux démos commentées](./module-06/demo-services-options/)
 
 ## Références, aller plus loin
 

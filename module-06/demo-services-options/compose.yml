@@ -1,0 +1,29 @@
+---
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    # volumes: #volume anonyme
+    # - .:/code
+    environment:
+      FLASK_DEBUG: ${FLASK_DEBUG}
+      MA_VARIABLE: ${MA_VARIABLE_DEFAULT}
+    # deploy:
+    #   mode: replicated
+    #   replicas: 3
+    secrets:
+      - my_secret
+    profiles: [frontend]
+    develop:
+      watch:
+        - path: ./
+          action: sync
+          target: /code
+
+  redis:
+    image: "redis:alpine"
+    profiles: [debug]
+secrets:
+  my_secret:
+    file: ./password
