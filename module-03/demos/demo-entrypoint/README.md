@@ -101,7 +101,7 @@ Si des arguments sont fournis, ils *override* ceux de `CMD` mais pas ceux d'`ENT
 docker run demo-cmd-and-entrypoint foo bar
 ~~~
 
-affiche `default arg foo bar CMD`.
+affiche `default arg ENTRYPOINT foo bar`.
 
 
 > On peut également *override* l'**executable** d'`ENTRYPOINT` avec l'option `--entry-point` si nécessaire.
