@@ -113,7 +113,7 @@ Dans un `Dockerfile`, il faut **soit** un seul `CMD` *exec form* **soit** un `EN
 
 - Si c'est `CMD` qui lance l'executable, on peut override **toute l'instruction** `CMD` (executable et arguments);
 - Si c'est `ENTRYPOINT` qui lance l'executable (sans `CMD`), on peut *append* des arguments;
-- Si c'est `ENTRYPOINT` qui lance l'executable et `CMD` qui définit les arguments par défaut, les arguments de `CMD` seront *append* ceux d'`ENTRYPOINT`. Si on fournit des arguments, les arguments de `CMD` seront *override* mais pas ceux d'`ENTRYPOINT`
+- Si c'est `ENTRYPOINT` qui lance l'executable et `CMD` qui définit les arguments par défaut, les arguments de `CMD` seront *append* à ceux d'`ENTRYPOINT`. Si on fournit des arguments, les arguments de `CMD` seront *override* mais *pas* ceux d'`ENTRYPOINT`
 
 ## Références
 
