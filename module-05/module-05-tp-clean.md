@@ -15,6 +15,11 @@ Module: Docker
     API](#docker-1---système-de-conteneurs---tp-module-4-et-module-5--dynamique-des-conteneurs-inspecter-restful-api)
     -   [TP 1 : Manipuler les volumes, dynamique et monitoring d'un
         conteneur](#tp-1--manipuler-les-volumes-dynamique-et-monitoring-dun-conteneur)
+        -   [Partie 1 : Inspecter et comprendre, préparer le
+            *terrain*](#partie-1--inspecter-et-comprendre-préparer-le-terrain)
+        -   [Partie 2 : Mise en place du site web via un volume et de la
+            configuration via un
+            bind-mount](#partie-2--mise-en-place-du-site-web-via-un-volume-et-de-la-configuration-via-un-bind-mount)
     -   [TP 2 : RESTful API du Docker
         Engine](#tp-2--restful-api-du-docker-engine)
         -   [Quelques clients HTTP](#quelques-clients-http)
@@ -25,32 +30,33 @@ Module: Docker
 > 2](https://en.wikipedia.org/wiki/Caddy_(web_server)), un serveur web
 > écrit en Go, léger et efficace.
 
-1.  **Créer** un volume nommé `localvolume`;
+### Partie 1 : Inspecter et comprendre, préparer le *terrain*
 
+1.  **Créer** un volume nommé `localvolume`;
 2.  **Déterminer** l'emplacement du contenu du volume sur votre système
     de fichiers;
-
-3.  **Télécharger** l'image `caddy:2.7.6`. **Inspecter** là pour
-    regarder les ports ouverts indiqués. Trouver le port auquel il
-    faudra mapper le port de votre machine hôte.
-
+3.  **Télécharger** [l'image officielle de
+    caddy2](https://hub.docker.com/_/caddy), un serveur web open-source
+    performant et léger écrit en Go. **Inspecter** là pour regarder les
+    ports ouverts indiqués. Trouver le port auquel il faudra mapper le
+    port de votre machine hôte.
 4.  Préparation du volume : **Écrire** un fichier `index.html` dans le
     volume `localvolume` avec le contenu
     `"The Doors of Durin, Lord of Moria. Speak, friend, and enter. I, Narvi, made them. Celebrimbor of Hollin drew these signs."`.
     Pour cela, créer un conteneur à partir de l'image de caddy en lui
     associant le volume, puis copier le fichier index.html dans le
     conteneur avec `docker cp`.
-
-5.  **Démarrer** un premier conteneur à partir de l'image (sans volume)
-    et inspecter la sortie avec votre navigateur préféré. **En déduire**
-    où monter le volume pour servir votre fichier `content`. **Lire** la
-    documentation et l'exemple pour comprendre comment utiliser l'image.
-
-6.  **Ouvrir** un shell interactif sur le conteneur (avec `sh`).
-    **Découvrir** où se situe le fichier de configuration de Caddy
-    notamment son *routeur* (mapping *METHODE HTTP+URL* au path du
-    fichier à servir). Le fichier se nomme `Caddyfile`;
-
+5.  Dans un premier temps, **démarrer** un conteneur à partir de l'image
+    **sans volume** puis inspecter la sortie avec votre navigateur
+    préféré. **En déduire** *où* monter le volume pour servir le fichier
+    `index.html` précédemment crée. **Lire** la documentation et
+    l'exemple pour comprendre comment utiliser l'image.
+6.  Votre site web est sur le conteneur, il faut à présent configurer le
+    routeur de Caddy. **Ouvrir** un shell interactif sur le conteneur
+    (avec `bin/sh`). **Découvrir** où se situe le fichier de
+    configuration de Caddy définissant son *routeur* (mapping *METHODE
+    HTTP+URL* au path du fichier à servir). Le fichier de configuration
+    se nomme `Caddyfile`;
 7.  **Découvrir** sous la clef `root` du fichier de configuration *le
     path par défaut*. Y créer un dossier `site` et y placer un fichier
     `index.html` avec le contenu `"hello, world"`. Toujours depuis le
@@ -58,52 +64,47 @@ Module: Docker
     serveur](https://caddyserver.com/docs/command-line#caddy-reload).
     **Tester** que `site/index.html` est bien servi sur l'url racine
     (`/`). *Tip: vous avez l'éditeur `vi` accessible sur le conteneur
-    pour éditer les fichiers*. \> Il est toujours utile d'inspecter avec
-    un shell interactif un nouveau système en faisant des tests rapides,
-    avant de préparer un Dockerfile ou la création de conteneurs et le
-    bind de volumes.
+    pour éditer les fichiers*.
 
-8.  **Arrêter** et **supprimer** ce conteneur (le dernier lancé) **en
-    une seule commande**. *Tip: combiner deux commandes `docker` pour y
-    parvenir.*
+> Il est toujours utile d'inspecter avec un shell interactif un nouveau
+> système en faisant des tests rapides, avant de préparer un
+> `Dockerfile` ou la création de conteneurs et le bind de volumes.
 
-9.  **Démarrer** un conteneur `moria`, en background, à partir de
-    [l'image officielle de caddy2](https://hub.docker.com/_/caddy), un
-    serveur web open-source performant et léger écrit en Go en lui
-    attachant le volume `localvolume` [avec l'option
+### Partie 2 : Mise en place du site web via un volume et de la configuration via un bind-mount
+
+1.  **Arrêter** et **supprimer** le conteneur lancé dans la partie 1
+    **en une seule commande**. *Tip: combiner deux commandes `docker`
+    pour y parvenir.*
+2.  **Démarrer** un conteneur `moria`, en background, à partir de
+    l'image de caddy en lui attachant le volume `localvolume` [avec
+    l'option
     --mount](https://docs.docker.com/reference/cli/docker/container/run/#mount)
     sur le path déterminé précédemment, ainsi qu'un *bind-mound* pour un
     fichier de configuration `Caddyfile`, afin de charger la bonne
     configuration testée précédemment.
-
-10. Pourquoi sur la page officielle est-il indiqué (section
+3.  Pourquoi sur la page officielle est-il indiqué (section
     `Building your own Caddy-based image`) :
     `note: never use the :latest tag in a production site` ?
-
-11. **Mettre en pause** le conteneur `moria` avec le client `docker`.
+4.  **Mettre en pause** le conteneur `moria` avec le client `docker`.
     **Essayer** de le requêter avec cURL sur le port tcp ouvert. Que
     constatez-vous ? *Tip: vous pouvez définir un timeout de n secondes
     avec `curl --max-time n url`*. **Enlever** la pause du conteneur. A
     quoi sert la mise en pause d'un conteneur ?
-
-12. **Ouvrez** un second terminal dans lequel vous **afficherez** les
+5.  **Ouvrez** un second terminal dans lequel vous **afficherez** les
     statistiques sur le conteneur `moria`. Dans le premier terminal,
     envoyer des requêtes pour observer les stats (notamment l'I/O).
     Observer la mémoire utilisée par le conteneur (sans limite imposée).
-
-13. **Redémarrer le conteneur avec une limite de mémoire de 10M**.
+6.  **Redémarrer le conteneur avec une limite de mémoire de 10M**.
     Vérifier que la limite est en place. Essayer de redémarrer avec une
     mémoire de **6m**. Que s'est-il passé ?
-
-14. Que fait l'instruction `docker run -P` ? **Essayer** avec un
+7.  Que fait l'instruction `docker run -P` ? **Essayer** avec un
     conteneur démarré à partir de l'image de caddy.
-
-15. *Bonus* : sur le conteneur caddy, utiliser PHP et écrire un script
+8.  *Bonus* : Sur le conteneur caddy, utiliser PHP et écrire un script
     qui sera associé à l'URL `POST /password` avec le body
     `password=mellon`. Le script doit vérifier le mot de passe fourni.
     Si le mot de passe est correct, le serveur doit répondre avec un
-    code status 200 et le document html *"(Les portes s'ouvrent)"*, avec
-    *"(Rien ne se passe)"* sinon.
+    code status `200` et le document html *"(Les portes s'ouvrent)"*,
+    avec *"(Rien ne se passe)"* sinon.
 
 > [La *Moria*](https://fr.wikipedia.org/wiki/Moria_(Terre_du_Milieu)),
 > ou Khazad-dûm, est une ancien royaume nain situé sous les montagnes de
