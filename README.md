@@ -4,8 +4,9 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 - [Docker](#docker)
   - [Modules](#modules)
-    - [Module 2](#module-2)
-    - [Module 3](#module-3)
+    - [Module 2 : Premiers pas](#module-2--premiers-pas)
+    - [Module 3 : Images](#module-3--images)
+    - [Module 4 et 5 : Inspecter et intervenir sur les conteneurs](#module-4-et-5--inspecter-et-intervenir-sur-les-conteneurs)
     - [Module 6 : Compose](#module-6--compose)
   - [Références, aller plus loin](#références-aller-plus-loin)
 
@@ -14,14 +15,20 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ## Modules
 
-### Module 2
+### Module 2 : Premiers pas
 
+- [Accéder aux sujets de TP](./module-02/module-02-tp-clean.md)
 - [Accéder aux corrections, commentaires sur les TPs](./module-02/tps-corrections/)
 
-### Module 3
+### Module 3 : Images
 
 - [Accéder aux démos commentées](./module-03/demos/)
+- [Accéder aux sujets de TP](./module-03/module-03-tp-clean.md)
 - [Accéder aux corrections, commentaires sur les TPs](./module-03/correction-tp/)
+
+### Module 4 et 5 : Inspecter et intervenir sur les conteneurs
+
+- [Accéder aux sujets de TP](./module-05/module-05-tp-clean.md)
 
 ### Module 6 : Compose
 
