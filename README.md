@@ -29,6 +29,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 ### Module 4 et 5 : Inspecter et intervenir sur les conteneurs
 
 - [Accéder aux sujets de TP](./module-05/module-05-tp-clean.md)
+- [Accéder aux corrections, commentaires sur les TPs](./module-05/correction-tp/)
 
 ### Module 6 : Compose
 
