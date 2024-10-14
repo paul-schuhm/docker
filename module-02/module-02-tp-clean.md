@@ -10,16 +10,13 @@ Module: Docker
 ```{=html}
 <hr>
 ```
--   [Docker 1 - Système de conteneurs - TP Module 2 : Premiers pas avec
-    Docker](#docker-1---système-de-conteneurs---tp-module-2--premiers-pas-avec-docker)
-    -   [Pré-requis](#pré-requis)
-        -   [Sur Windows](#sur-windows)
-    -   [TP 1 : *Qu'est ce qu'un conteneur
-        ?*](#tp-1--quest-ce-quun-conteneur-)
-    -   [TP 2 : *How do I run a container
-        ?*](#tp-2--how-do-i-run-a-container-)
-    -   [TP 3 *Run Docker Hub Images*](#tp-3-run-docker-hub-images)
-    -   [TP 4 Récapitulatif](#tp-4-récapitulatif)
+- [Docker 1 - Système de conteneurs - TP Module 2 : Premiers pas avec Docker](#docker-1---système-de-conteneurs---tp-module-2--premiers-pas-avec-docker)
+  - [Pré-requis](#pré-requis)
+    - [Sur Windows](#sur-windows)
+  - [TP 1 : *Qu'est ce qu'un conteneur ?*](#tp-1--quest-ce-quun-conteneur-)
+  - [TP 2 : *How do I run a container ?*](#tp-2--how-do-i-run-a-container-)
+  - [TP 3 *Run Docker Hub Images*](#tp-3-run-docker-hub-images)
+  - [TP 4 Récapitulatif](#tp-4-récapitulatif)
 
 ## Pré-requis
 
@@ -56,6 +53,9 @@ Suivre le guide officiel [What is a container
 Questions supplémentaires :
 
 1.  **Trouver** le code source du site web dans l'image.
+2. Dans Docker Desktop, supprimer le conteneur précédemment crée, ainsi que l'image `welcome-to-docker`.
+3. **Refaire le guide mais cette fois-ci en utilisant la CLI** et non la GUI de Docker Desktop. Pour cela, inspecter la commande `docker run`, soit depuis la documentation client (`docker run --help`), [soit depuis la documentation en ligne](https://docs.docker.com/reference/cli/docker/container/run/).
+4. En utilisant `docker`, **stopper** et **supprimer** le conteneur crée précédemment.
 
 ## TP 2 : *How do I run a container ?*
 
