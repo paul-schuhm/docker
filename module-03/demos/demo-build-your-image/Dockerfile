@@ -1,12 +1,23 @@
-#Dockerfile FIXe avec nouvelle version centos7 et de epel7
+# VERSION 0.2
+# DOCKER-VERSION 0.3.4
+# To build:
+# 1. Install docker (http://docker.io)
+# 2. Checkout source: git@github.com:gasi/docker-node-hello.git
+# 3. Build container: docker build .
 
-FROM    centos:centos7
+FROM centos:8
 
-# Enable EPEL for Node.js
-RUN     rpm -Uvh https://mirror.in2p3.fr/pub/epel/epel-release-latest-7.noarch.rpm
+#Fix l'URL des dépots (mirror.centos.org n'existe plus depuis le 1er Juin 2024)
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/CentOS-*.repo
+RUN sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/CentOS-*.repo
+RUN sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/CentOS-*.repo
+
+#Update
+RUN yum upgrade -y
+
 # Install Node.js and npm
-# RUN     yum install -y -q npm
-RUN     yum install -y -qnpm
+RUN curl -sL https://rpm.nodesource.com/setup_20.x | bash -
+RUN dnf install nodejs -y
 
 # App
 ADD . /src
