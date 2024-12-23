@@ -1,15 +1,12 @@
 # Docker 1 - Système de conteneurs - TP Module 4 et Module 5 : Dynamique des conteneurs, inspecter, RESTful API
 
-```{=html}
 <hr>
-```
+
 Paul Schuhmacher
 
 Module: Docker
 
-```{=html}
 <hr>
-```
 - [Docker 1 - Système de conteneurs - TP Module 4 et Module 5 : Dynamique des conteneurs, inspecter, RESTful API](#docker-1---système-de-conteneurs---tp-module-4-et-module-5--dynamique-des-conteneurs-inspecter-restful-api)
   - [TP 1 : Manipuler les volumes, dynamique et monitoring d'un conteneur](#tp-1--manipuler-les-volumes-dynamique-et-monitoring-dun-conteneur)
     - [Découverte du serveur Caddy](#découverte-du-serveur-caddy)
