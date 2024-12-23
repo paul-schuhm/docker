@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    image: app:2.1 #Le nom de l'image à build (incrémenter le tag à chaque version)
+    ports:
+      - 8000:5000
+    develop:
+      watch:
+        - path: ./
+          action: sync
+          target: /code
+    env_file:
+      - .env.dev
+  redis:
+    image: redis
+secrets:
+  my_secret:
+    file: ./password.dev

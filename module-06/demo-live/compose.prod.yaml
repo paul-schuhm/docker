@@ -1,0 +1,12 @@
+services:
+  web:
+    image: compose-web #image de mon app prête à être déployée
+    ports:
+      - 3000:5000
+    env_file:
+      - .env.prod
+  redis:
+    image: redis
+secrets:
+  my_secret:
+    file: ./password.prod
