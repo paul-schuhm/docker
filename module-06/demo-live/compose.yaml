@@ -1,0 +1,15 @@
+#fichier base
+services:
+  web:
+    env_file:
+      - .env
+    secrets:
+      - my_secret
+    depends_on:
+      - redis
+  redis:
+    image: redis
+
+secrets:
+  my_secret:
+    file: ./password.dev
