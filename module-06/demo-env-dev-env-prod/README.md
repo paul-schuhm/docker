@@ -3,7 +3,7 @@
 - [Démo : plusieurs environnements par composition (merge) de fichiers compose](#démo--plusieurs-environnements-par-composition-merge-de-fichiers-compose)
   - [Lancer le projet](#lancer-le-projet)
     - [En env de dev (défaut)](#en-env-de-dev-défaut)
-  - [En env de prod](#en-env-de-prod)
+    - [En env de prod](#en-env-de-prod)
   - [Publier l'image](#publier-limage)
 
 
@@ -30,7 +30,7 @@ docker compose config
 docker compose up -d
 ~~~
 
-## En env de prod
+### En env de prod
 
 ~~~
 #check
