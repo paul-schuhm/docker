@@ -34,7 +34,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ### Module 6 : Compose
 
-- [Accéder à la démo sur les différentes options de compose](./module-06/demo-services-options/);
+- [Accéder à une démo sur la gestion de plusieurs environnements](./module-06/demo-env-dev-env-prod/)
+- [Accéder à une démo sur les différentes options de compose (profiles, merge, etc.)](./module-06/demo-services-options/);
 - [Accéder à une démo de conteneurization d'une app Node.js, basée sur le guide officiel](./module-06/demo-dev-node/)
 - [Accéder à une démo pour travailler avec plusieurs fichiers compose (live)](./module-06/demo-live/)
 
