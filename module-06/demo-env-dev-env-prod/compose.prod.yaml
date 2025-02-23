@@ -1,0 +1,5 @@
+services:
+  web:
+    ports:
+      - "3000:5000"
+    env_file: .env.prod
