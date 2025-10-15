@@ -1,19 +1,11 @@
-FROM golang:1.21
-WORKDIR /src
-# Code source go directement embarqué (syntaxe Heredoc)
-# dans le Dockerfile pour l'exemple
-COPY <<EOF ./main.go
-package main
+#Quel est le problème ici ?!
+FROM golang:1.23
 
-import "fmt"
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    rm -rf /var/lib/apt/lists/*
 
-func main() {
-  fmt.Println("hello, world")
-}
-EOF
-#Compilation
-RUN go build -o /bin/hello ./main.go
+RUN CGO_ENABLED=0 go install -ldflags="-s -w" github.com/adriaandejonge/helloworld@latest
 
-FROM scratch
-COPY --from=0 /bin/hello /bin/hello
-CMD ["/bin/hello"]
+EXPOSE 8080
+CMD ["/go/bin/helloworld"]
