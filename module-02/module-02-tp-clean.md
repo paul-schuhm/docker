@@ -107,12 +107,12 @@ Suivre le guide officiel [Run a container](https://docs.docker.com/guides/walkth
     moyen de reconstruire l'image (`docker build`) **sans avoir recours
     au cache**. Nommer cette image comme la précédente, soit
     `welcome-to-docker`. **Construire** l'image. **Inspecter** la liste
-    de vos images. Qu'observez-vous ? **Lancer** un conteneur avec
+    de vos images. Qu'observez-vous ? Qu'est-il arrivé à l'ancienne image ? Pourquoi ? **Lancer** un conteneur avec
     `docker` à partir de la *nouvelle* image. **Supprimer** l'ancienne
     image avec `docker` (*dangling image*);
 11. **Lancer** un nouveau conteneur nommé `just-another-container` à
     partir de l'image `welcome-to-docker`
-12. Le conteneur exécuté un serveur web. Un serveur web est [un
+12. Le conteneur exécute un serveur web. Un serveur web est [un
     processus
     daemonisé](https://fr.wikipedia.org/wiki/Daemon_(informatique))
     auquel doit être associé un port pour récupérer des données. Comment

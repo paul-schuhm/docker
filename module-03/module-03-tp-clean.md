@@ -46,12 +46,11 @@ Dans ce TP, vous allez apprendre à **construire** et **exécuter** des images D
 
 7. **Construire** l’image et la nommer/taguer `www:1`. Ajouter une métadonnée `author` avec votre nom ou pseudo.
 8.  **Vérifier** que votre image est bien présente, **inspecter** ses métadonnées (dont `author`) et identifier le port exposé par l’image (port HTTP par défaut).
-9.  **Inspecter** l'image : **vérifier** que la métadonnée `author` a bien été ajoutée et **trouver** le port tcp qui sera exposé par le conteneur.
-10. **Exécuter** un conteneur à partir de cette image en mappant le port `8089` de votre machine sur le port `80` du conteneur.
-11. **Tester** l’accès au site web à l'adresse [http://localhost:8089](http://localhost:8089) (avec votre navigateur ou avec [cURL](https://curl.se/))
-12. **Lister** les conteneurs en cours d’exécution;
-13. **Arrêter** puis **supprimer** le conteneur.
-14. Enfin, **identifier** à partir de quelle image de base est construite l’image officielle `httpd` d'Apache (sur quelle image est-elle basée ?).
+9.  **Exécuter** un conteneur à partir de cette image en mappant le port `8089` de votre machine sur le port `80` du conteneur.
+10. **Tester** l’accès au site web à l'adresse [http://localhost:8089](http://localhost:8089) (avec votre navigateur ou avec [cURL](https://curl.se/))
+11. **Lister** les conteneurs en cours d’exécution;
+12. **Arrêter** puis **supprimer** le conteneur.
+13. Enfin, **identifier** à partir de quelle image de base est construite l’image officielle `httpd` d'Apache (sur quelle image est-elle basée ?).
 
 ### Partie 2 - En construisant son image à partir d'une image Ubuntu
 
