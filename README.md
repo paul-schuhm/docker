@@ -7,8 +7,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
     - [Module 2 : Premiers pas](#module-2--premiers-pas)
     - [Module 3 : Images](#module-3--images)
     - [Module 4 : Conteneurs et volumes](#module-4--conteneurs-et-volumes)
-  - [Module 5 : Inspecter et intervenir sur les conteneurs](#module-5--inspecter-et-intervenir-sur-les-conteneurs)
-    - [Module 6 : Compose](#module-6--compose)
+    - [Module 5 : Inspecter et intervenir sur les conteneurs](#module-5--inspecter-et-intervenir-sur-les-conteneurs)
+    - [Module 6 : (Docker) Compose : projets multi-conteneurs](#module-6--docker-compose--projets-multi-conteneurs)
   - [Module 7 : Déploiement](#module-7--déploiement)
   - [Références, aller plus loin](#références-aller-plus-loin)
 
@@ -33,12 +33,12 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 - [Accéder aux sujets de TP Module 4](./module-04/module-04-tp-clean.md)
 - [Accéder aux corrections, commentaires sur les TPs](./module-04/correction-tp/)
 
-## Module 5 : Inspecter et intervenir sur les conteneurs
+### Module 5 : Inspecter et intervenir sur les conteneurs
 
 - [Accéder aux sujets de TP Module 5](./module-05/module-05-tp-clean.md)
 - [Accéder aux corrections, commentaires sur les TPs](./module-05/correction-tp/)
 
-### Module 6 : Compose
+### Module 6 : (Docker) Compose : projets multi-conteneurs
 
 - [Accéder à une démo sur la gestion de plusieurs environnements](./module-06/demo-env-dev-env-prod/)
 - [Accéder à une démo sur les différentes options de compose (profiles, merge, etc.)](./module-06/demo-services-options/);
