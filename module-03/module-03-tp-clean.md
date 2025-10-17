@@ -121,7 +121,7 @@ docker run -it guess:1
 
 5. **Expliquez** le rôle des options `-t` et `-i` ? Pourquoi sont-elles nécessaires dans ce cas ?
 6. **Inspectez** la taille de l'image. **Comparez-la** à la taille de l'exécutable.
-7. À l’aide de la technique des *Multi-Stage Builds*, **optimisez** le `Dockerfile` afin de produire une image finale plus légère nommée `guess:2`, où l'on se sera débarrassé des dépendances liées à la phase de compilation (build).
+7. À l’aide de la technique [du *Multi-Stage Builds*](https://docs.docker.com/build/building/multi-stage/), **optimisez** le `Dockerfile` afin de produire une image finale plus légère nommée `guess:2`, où l'on se sera débarrassé des dépendances liées à la phase de compilation (build).
 
 > "Ship **artifacts**, not build environments" (Kesley Hightower)
 
