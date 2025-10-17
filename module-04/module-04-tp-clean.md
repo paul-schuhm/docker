@@ -1,17 +1,13 @@
-# Docker 1 - Système de conteneurs - TP Module 4 : Travailler avec les conteneurs Docker
+# Docker 1 - Système de conteneurs - TP Module 4 : Conteneurs et volumes/bind-mounts
 
-```{=html}
 <hr>
-```
 Paul Schuhmacher
 
 Février 2024
 
 Module: Docker
 
-```{=html}
 <hr>
-```
 ## TP 1 : Partagez des données entre services via des volumes
 
 1.  **Construisez** une image `build-reports` à partir de
