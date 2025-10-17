@@ -106,7 +106,9 @@ FROM gcc:4.9
 #copier le code source main.c dans l'image
 COPY main.c /usr/src/myapp
 WORKDIR /usr/src/myapp
+#compiler le programme et produire le binaire
 RUN gcc -o guess-my-number main.c
+#Exécuter le binaire
 CMD ["./guess-my-number"]
 ~~~
 
@@ -118,12 +120,12 @@ docker run -it guess:1
 ~~~
 
 5. **Expliquez** le rôle des options `-t` et `-i` ? Pourquoi sont-elles nécessaires dans ce cas ?
-6. **Inspectez** la taille de l'image. Comparez-la à la taille de l'executable.
-7. À l’aide de la technique des *Multi-Stage Builds*, **optimisez** le `Dockerfile` afin de produire une image finale plus légère nommée `guess:2` où l'on se sera débarrassé des dépendances liés à la phase de build.
+6. **Inspectez** la taille de l'image. **Comparez-la** à la taille de l'exécutable.
+7. À l’aide de la technique des *Multi-Stage Builds*, **optimisez** le `Dockerfile` afin de produire une image finale plus légère nommée `guess:2`, où l'on se sera débarrassé des dépendances liées à la phase de compilation (build).
 
 > "Ship **artifacts**, not build environments" (Kesley Hightower)
 
-8. Que peut-on également améliorer dans le `Dockerfile` initial pour optimiser le temps de build ? *Tip: pour générer un binaire autonome (standalone), vous pouvez le compiler statiquement : `gcc -o guess-my-number -static main.c`*.
+8. Que peut-on également améliorer dans le `Dockerfile` proposé plus haut pour optimiser le temps de build et mieux utiliser le cache ? *Tip: pour générer un binaire autonome (standalone), vous pouvez le compiler statiquement : `gcc -o guess-my-number -static main.c`*.
 9. **Comparer** les tailles finales des images `guess:1` et `guess:2`. 
 10. **Supprimez** les images `guess:1` et `guess:2`.
 11. *Bonus:* Pourquoi peut-il être intéressant de créer un binaire statique ? Quels sont les avantages et les inconvénients d’un binaire compilé statiquement par rapport à un binaire compilé dynamiquement ?
