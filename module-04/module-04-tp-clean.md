@@ -1,9 +1,10 @@
-# Docker 1 - Système de conteneurs - TP Module 4 : Conteneurs et volumes/bind-mounts
+# Docker - Système de conteneurs - TP Module 4 : Conteneurs et volumes/bind-mounts
 
 <hr>
+
 Paul Schuhmacher
 
-Février 2024
+Octobre 2025
 
 Module: Docker
 
