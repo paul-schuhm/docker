@@ -19,7 +19,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ### Module 2 : Premiers pas
 
-- [Accéder aux sujets de TP](./module-02/module-02-tp-clean.md)
+- [Accéder aux sujets de TP](./module-02/module-02-tp.md)
 - [Accéder aux corrections, commentaires sur les TPs](./module-02/tps-corrections/)
 
 ### Module 3 : Images
