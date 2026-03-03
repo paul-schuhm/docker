@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#Extrait les fichiers dans le repertoire reports
+#directement dans le repertoire courant
+tar -xf reports/reports.tar --strip-components=1 -C reports
+
+# Approbation des rapports
+i=1
+n=$(ls reports/ | grep "report.*\.txt" | wc -l)
+
+while [ "$i" -le "$n" ]; do
+    filename="reports/report$(printf "%04d" "$i").txt"
+    echo "Approved" >> "$filename"
+    i=$((i+1))
+done
+
+echo "Approbation des $n rapports terminée."

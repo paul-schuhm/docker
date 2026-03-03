@@ -14,7 +14,7 @@ build:
 	docker compose -f compose.yaml -f compose.dev.yaml build web
 
 down-dev:
-	docker compose -f compose.yaml -f compose.dev.yaml up -d
+	docker compose -f compose.yaml -f compose.dev.yaml down
 
 restart: down-dev up-dev
 
