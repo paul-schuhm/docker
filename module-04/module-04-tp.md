@@ -36,7 +36,7 @@ Pour stocker le travail réalisé par ce second service, on réutilisera le rép
 
 7. Refaire la question 6 **en utilisant cette fois un volume `vol_reports`**, et non plus un *bind-mount*.
 
-## TP 2 : Base de données SQL et volumes
+## TP 2 : Base de données SQL conteneurisée (persistance des données)
 
 Rendez-vous sur [la page de l'image docker officielle de MySQL](https://hub.docker.com/_/mysql), et explorez la documentation.
 
