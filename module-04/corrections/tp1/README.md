@@ -10,24 +10,28 @@ Voir le [Dockerfile](./Dockerfile-build) et le code source du programme (sh) [bu
 chmod +x build-reports
 docker build -t build-reports -f Dockerfile-build .
 # Passage en argument
-docker run --rm -it build-reports 10
+docker run --rm build-reports 10
 #Déclencher l'erreur
-docker run --rm -it build-reports
+docker run --rm build-reports
 #Lister les conteneurs qui ont terminé sur une erreur (exit 1 ici)
 docker ps -a -q --filter 'exited=1'
 # Sans supprimer le conteneur pour recup les fichiers
-docker run -it build-reports 10
+docker run build-reports 10
 # Récupérer depuis le conteneur arrêté les fichiers (docker cp)
 docker cp <id>:/reports .
 ~~~
 
-Pour persister et traiter les données générées par le conteneur, on utilise un "volume" (ou un *bind mount* plus précisémment ici). Ainsi le cycle de vie des données devient indépendant du cycle de vie du conteneur (je peux le supprimer sans soucis par ex) :
+Pour persister et traiter les données générées par le conteneur, on utilise un *bind mount*. Ainsi le cycle de vie des données devient indépendant du cycle de vie du conteneur (je peux par ex. le supprimer sans soucis) :
 
 ~~~bash
 #On y stockera les rapports générés
-mkdir -p vol_reports
-docker run --rm -v ./vol_reports:/reports build-reports 20
-ls vol_reports
+mkdir -p reports
+# Avec l'option --volume : docker run --rm --v ./vol_reports:/reports build-reports 20
+# Avec l'option --mount
+docker run --rm \
+  --mount type=bind,source="$(pwd)/reports",target=/reports \
+  build-reports 20
+ls reports
 ~~~
 
 ### 2è tâche : approve-reports
@@ -37,20 +41,30 @@ Voir le [Dockerfile](./Dockerfile-approve) et le code source du programme (sh) [
 ~~~bash
 chmod +x approve-reports
 docker build -t approve-reports -f Dockerfile-approve .
-docker run --rm -v ./vol_reports:/reports approve-reports
+docker run --rm --mount type=bind,source="$(pwd)/reports",target=/reports  approve-reports
 ~~~
 
-> Pour debug le script, on peut override l'entrypoint avec l'option `--entrypoint` : `docker run --rm -it -v ./vol_reports:/reports --entrypoint sh approve-reports` ouvrir un shell interactif à la place d’exécuter le script défini dans le Dockerfile.
+> Pour debug le script, on peut override l'entrypoint avec l'option `--entrypoint` : `docker run --rm -it -v ./reports:/reports --entrypoint sh approve-reports` ouvrir un shell interactif à la place d’exécuter le script défini dans le Dockerfile.
 
-Remarquez que le volume `vol_reports` est la propriété de `root` car il est crée, au moment de la création du volume, par docker, qui a les droits root. Si vous ne voulez pas que le volume appartienne à `root`, le plus simple est de créer le point de montage du volume (dossier `vol_reports`) **avant** avec le propriétaire/droits que vous désirez (votre user par exemple).
 
 <!-- 
-Si le repertoire vol_reports n'existe pas : docker le cree avec les droits root
+Si le repertoire reports n'existe pas avec l'option -v : docker le cree avec les droits root
 S'il est crée en avance, docker l'utilise et le dossier conserve les droits définis sur la machine hote.
+Mieux vaut utiliser --mount car si rep existe pas docker leve une erreur !
  -->
 
+## Réécriture avec un volume
 
- ## Annexe
+~~~bash
+#Build reports
+docker run --rm \
+  --mount type=volume,source=vol_reports,target=/reports \
+  build-reports 20
+#Approve reports
+docker run --rm --mount type=volume,source=vol_reports,target=/reports  approve-reports
+~~~
+
+## Annexe
 
 Script `build-reports`:
 

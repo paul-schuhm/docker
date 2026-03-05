@@ -96,7 +96,7 @@ EXPOSE 80
 11. **Conclure** : quelle image est la plus pertinente entre `www` (basée sur `httpd`) et `ubuntu-www` (basée sur ubuntu + apache2) ? **Justifiez** votre choix.
 
 
-## TP 2 : Optimisation d'image
+## TP 2 : Optimisation de taille d'image
 
 1. **Écrivez** le code source du jeu *"Guess my number"* en C (ou générez-le automatiquement si vous ne souhaitez pas le coder à la main). Dans ce jeu, l'ordinateur choisit un nombre aléatoire entre 1 et 100 compris, et le joueur doit deviner ce nombre en faisant des propositions (à soumettre au clavier, via l'entrée standard). Le programme donne des indications si la proposition est trop haute, trop basse ou correcte. Le joueur a 10 essais avant le game over.
 2. Voici un `Dockerfile` minimal basé sur [l'image officielle gcc](https://hub.docker.com/_/gcc) permettant de compiler et d'exécuter le programme dans un conteneur :

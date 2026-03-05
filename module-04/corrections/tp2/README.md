@@ -1,11 +1,11 @@
-# Correction TP 5
+# Correction TP 4
 
 ~~~bash
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:8.3
 docker exec -it some-mysql /bin/bash
 ~~~
 
-Dans le conteneur ;
+Dans le conteneur
 
 ~~~bash
 #utiliser la variable d'environnement directement (`env`)
@@ -14,7 +14,7 @@ mysql -uroot -p"$MYSQL_ROOT_PASSWORD"
 mysql -uroot -p
 ~~~
 
-Créer la base, une table et insérer les données 
+Créer la base, une table et insérer les données :
 
 ~~~sql
 CREATE DATABASE mydb;
@@ -25,17 +25,17 @@ TABLE mydb.user;
 exit;
 ~~~
 
-5. Non, car pas de volume, mémoire d'un conteneur volatile. Oui si l'on se relance au conteneur, les données de la base sont toujours présentes. Arrêter un conteneur ne supprime pas sa mémoire interne. Tant que le conteneur n'est pas supprimé on peut toujours accéder aux données. Arrêter un conteneur **sans le supprimer** ne provoque pas la perte de données.
+5. Non, car pas de volume, mémoire d'un conteneur volatile. Oui si l'on se relance au conteneur, les données de la base sont toujours présentes. **Arrêter un conteneur ne supprime pas sa mémoire interne**. Tant que le conteneur n'est pas supprimé on peut toujours accéder aux données. Arrêter un conteneur **sans le supprimer** ne provoque pas la perte de données.
 
-6. Créer un dossier `data` et lancer le conteneur en attachant le volume
+6. Créer un dossier `data` et lancer le conteneur en attachant le bind-mount :
 
 ~~~bash
 docker run --name mysql8 -v "$PWD/data"/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:8.3
 ~~~
 
-> Attention, il faut fournir le chemin **absolu** du dossier servant de volume.
+> Attention, il faut fournir le chemin **absolu** pour le bind-mount !
 
-10. Dump :
+1.  Dump :
 
 ~~~bash
 docker exec some-mysql sh -c 'exec mysqldump --databases mydb -uroot -p"$MYSQL_ROOT_PASSWORD"' > "$PWD/dump.sql"
@@ -61,6 +61,14 @@ docker exec -i some-mysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < d
 ~~~
 
 > Conteneuriser une base de données peut être utile pour rendre l'environnement de l'application complètement cohérent (pas juste les sources de l'appli qui utilise la base). Cela permet de mettre la base de données dans l'environnement de Docker et de profiter, via les volumes, de la même souplesse pour reproduire le même environnement sur différentes machines (en déplaçant les volumes, facilement manipulables via la plateforme Docker).
+
+## Annexes
+
+`drop-mybd.sql` :
+
+~~~SQL
+DROP DATABASE IF EXISTS mydb;
+~~~
 
 ## Références
 
