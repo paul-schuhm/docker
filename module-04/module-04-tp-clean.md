@@ -113,15 +113,7 @@ TABLE mydb.user;
 10. **Arrêtez** et **supprimez** le conteneur. Les données sont-elles
     encore présentes ? **Relancez** un conteneur avec le volume (comme à
     la question 7) pour le vérifier.
-11. Peut on associer un volume à plusieurs conteneurs ? **Essayez** en
-    lançant un nouveau conteneur `mysql8-friend` avec le même volume.
-    **Ouvrez** deux shells dans deux terminaux, l'un sur `mysql8` et
-    l'autre sur `mysql8-friend`. **Manipulez** la base avec l'un
-    (insérer des données, créer une table, etc.) et **inspectez** avec
-    l'autre et vice versa;
-12. **Arrêtez** et **supprimer** le conteneur `mysql8-friend` **en une
-    seule commande**;
-13. **Créez** un fichier `drop-mydb.sql` avec le contenu suivant :
+11. **Créez** un fichier `drop-mydb.sql` avec le contenu suivant :
 
 ``` sql
 DROP DATABASE IF EXISTS mydb;
@@ -134,5 +126,5 @@ ouvrir de shell interactif**, en utilisant le *batch mode* :
 docker exec -i mysql8 mysql -uroot -p < drop-mydb.sql
 ```
 
-14. De la même manière, **restaurez** la base à partir du dump
+13. De la même manière, **restaurez** la base à partir du dump
     `dump-mydb.sql`.
