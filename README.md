@@ -40,6 +40,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 ### Module 6 : (Docker) Compose : projets multi-conteneurs
 
+- [Accéder aux sujets de TP Module 6](./module-06/module-06-tp.md)
+
 - [Accéder à une démo sur la gestion de plusieurs environnements](./module-06/demo-env-dev-env-prod/)
 - [Accéder à une démo sur les différentes options de compose (profiles, merge, etc.)](./module-06/demo-services-options/);
 - [Accéder à une démo de conteneurization d'une app Node.js, basée sur le guide officiel](./module-06/demo-dev-node/)
