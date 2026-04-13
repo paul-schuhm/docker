@@ -50,6 +50,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 ## Module 7 : Déploiement
 
 - [Accéder au dépôt sur un exemple de stratégie CI/CD, déploiement et discussions sur différentes méthodes possibles](https://github.com/paul-schuhm/docker-workflow-cicd)
+- [Accéder à une démo CI/CD d'une application PHP, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy-php-guide) : SonarQube, Linter, tests d'intégration, Docker Scout, etc. ;
+- [Accéder à une démo CI/CD d'une application Node.js, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy) : Docker Hardened Images, Linter (ESLint), tests unitaires et tests d'intégration avec TestContainers, etc.
 
 ## Références, aller plus loin
 
