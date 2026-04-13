@@ -63,12 +63,20 @@ TP sur :
 
 ## TP 3 : Projet web
 
-Mettre en place et déployer avec compose le projet constitué des services suivants :
+1. Mettre en place et déployer avec compose le projet constitué des services suivants :
 
 - Un **service de base de données**, pour que notre système ait un système de mémoire. Utiliser une base de données SQL (MySQL, PostgreSQL, MariaDB, etc.). Un volume devra lui être attaché.
 - Un **service web**, dans la technologie de votre choix, qui interroge la base de données et affiche le résultat d'une requête SQL sur une page web.
 
 > Faites une base de données minimale au choix. **L'important c'est que les deux services communiquent.**
+
+2. **Adapter** votre projet pour disposer de **deux environnements** : *dev* et *prod*. En env de prod : 
+
+- Le service web affiche un message différent (ce message sera placé dans une variable d'environnement) ;
+- Le mot de passe de l'utilisateur de la base de données est différent ;
+- Le conteneur du service web est instancié à partir d'une image *build* **en amont**, contrairement à l'env de dev où le conteneur est instancé à partir d'un fichier `Dockerfile` (en cours de développement)
+
+Pour cela, utiliser les mécanismes d'héritage (extends), d'inclusion (include), de profiles ou de composition (merge) des fichiers compose. 
 
 Penser à **utiliser les fichiers d'environnement et les secrets à bon escient**.
 
