@@ -9,7 +9,8 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
     - [Module 4 : Conteneurs et persistance des données](#module-4--conteneurs-et-persistance-des-données)
     - [Module 5 : Conteneurs : Inspecter, monitorer et intervenir sur les conteneurs](#module-5--conteneurs--inspecter-monitorer-et-intervenir-sur-les-conteneurs)
     - [Module 6 : (Docker) Compose : projets multi-conteneurs](#module-6--docker-compose--projets-multi-conteneurs)
-  - [Module 7 : Déploiement](#module-7--déploiement)
+  - [Module 8 : Déploiement](#module-8--déploiement)
+    - [Démos et documentation de procédures de déploiement](#démos-et-documentation-de-procédures-de-déploiement)
   - [Références, aller plus loin](#références-aller-plus-loin)
 
 
@@ -47,7 +48,11 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 - [Accéder à une démo de conteneurization d'une app Node.js, basée sur le guide officiel](./module-06/demo-dev-node/)
 - [Accéder à une démo pour travailler avec plusieurs fichiers compose (live)](./module-06/demo-live/)
 
-## Module 7 : Déploiement
+## Module 8 : Déploiement
+
+- [Accéder aux sujets de TP Module 8](./module-06/module-08-tp.md)
+
+### Démos et documentation de procédures de déploiement
 
 - [Accéder au dépôt sur un exemple de stratégie CI/CD, déploiement et discussions sur différentes méthodes possibles](https://github.com/paul-schuhm/docker-workflow-cicd)
 - [Accéder à une démo CI/CD d'une application PHP, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy-php-guide) : SonarQube, Linter, tests d'intégration, Docker Scout, etc. ;
