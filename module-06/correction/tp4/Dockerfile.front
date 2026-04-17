@@ -1,0 +1,10 @@
+FROM httpd:2.4
+
+# Installer gettext pour avoir accès à envsubst
+RUN apt-get update && apt-get install -y gettext-base && \ 
+    apt-get clean
+
+# Copier les fichiers HTML dans le conteneur
+COPY ./front /usr/local/apache2/htdocs/
+
+CMD /bin/bash -c "httpd-foreground"

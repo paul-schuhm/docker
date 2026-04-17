@@ -1,0 +1,30 @@
+services:
+
+    front:
+        image: frontend:${VERSION}
+        build:
+          context: .
+          dockerfile: Dockerfile.front
+        restart: unless-stopped
+    back:
+      image: backend:${VERSION}
+      build:
+        context: .
+        dockerfile: Dockerfile.back
+        target: production
+      env_file :
+        - .env.prod
+      secrets:
+        - db-password
+      volumes:
+        - ./php.ini.dev:/usr/local/etc/php/conf.d/php-dev.ini:ro
+      restart: unless-stopped
+    db :
+      secrets:
+        - db-password
+      volumes:
+        - ./db/init-db-prod.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      restart: unless-stopped
+secrets:
+  db-password:
+    file: db/password_prod.txt

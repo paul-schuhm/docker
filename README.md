@@ -41,6 +41,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 ### Module 6 : (Docker) Compose : projets multi-conteneurs
 
 - [Accéder aux sujets de TP Module 6](./module-06/module-06-tp.md)
+- [Accéder aux corrections, commentaires sur les TPs](./module-06/correction/)
 
 - [Accéder à une démo sur la gestion de plusieurs environnements](./module-06/demo-env-dev-env-prod/)
 - [Accéder à une démo sur les différentes options de compose (profiles, merge, etc.)](./module-06/demo-services-options/);
@@ -51,7 +52,7 @@ Sources (exercices, corrections, démos, etc.) du module d'enseignement Docker.
 
 - [Accéder au dépôt sur un exemple de stratégie CI/CD, déploiement et discussions sur différentes méthodes possibles](https://github.com/paul-schuhm/docker-workflow-cicd)
 - [Accéder à une démo CI/CD d'une application PHP, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy-php-guide) : SonarQube, Linter, tests d'intégration, Docker Scout, etc. ;
-- [Accéder à une démo CI/CD d'une application Node.js, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy) : Docker Hardened Images, Linter (ESLint), tests unitaires et tests d'intégration avec TestContainers, etc.
+<!-- - [Accéder à une démo CI/CD d'une application Node.js, basée sur un guide officiel et étendue](https://github.com/paul-schuhm/demo-docker-deploy) : Docker Hardened Images, Linter (ESLint), tests unitaires et tests d'intégration avec TestContainers, etc. EN COURS DE PREPARATION -->
 
 ## Références, aller plus loin
 

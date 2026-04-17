@@ -1,0 +1,27 @@
+display_errors = Off
+log_errors = On
+error_log = /var/log/wordpress.log
+error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT
+file_uploads = On
+memory_limit = 64M
+post_max_size = 64M
+upload_max_filesize = 64M
+max_execution_time = 60
+zlib.output_compression = On
+zlib.output_compression_level = 5
+
+opcache.enable=1
+opcache.memory_consumption=64
+opcache.interned_strings_buffer=16
+opcache.max_accelerated_files=5000
+opcache.validate_timestamps=0
+opcache.fast_shutdown=1
+opcache.file_cache=/var/cache/opcache
+opcache.file_cache_only=0
+opcache.file_cache_consistency_checks=1
+
+; Just In Time (JIT) compilation
+opcache.enable=1
+opcache.enable_cli=1
+opcache.jit_buffer_size=100M
+opcache.jit=tracing

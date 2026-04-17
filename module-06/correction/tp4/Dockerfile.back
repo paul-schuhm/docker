@@ -1,0 +1,36 @@
+FROM php:8.0-apache AS base
+
+# Installation des dépendances système et PHP nécessaires partout
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        git \
+        default-mysql-client \
+        default-libmysqlclient-dev && \
+    docker-php-ext-install pdo_mysql && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+# Image de dev
+FROM base AS development
+
+# Téléchargement et installation de Go et mhsendmail
+RUN curl -Lsf https://go.dev/dl/go1.25.6.linux-amd64.tar.gz | tar -C /usr/local -xz
+ENV PATH /usr/local/go/bin:$PATH
+
+RUN go install github.com/mailhog/mhsendmail@latest && \
+    cp /root/go/bin/mhsendmail /usr/bin/mhsendmail && \
+    chmod +x /usr/bin/mhsendmail
+
+#Configuration de mhsendmail comme client mail utilisé par PHP, connecté au service mailcatcher
+RUN echo 'sendmail_path="/usr/bin/mhsendmail --smtp-addr=mailhog:1025"' > /usr/local/etc/php/conf.d/mailhog.ini
+
+COPY back/ /var/www/html/
+
+# Image de prod
+FROM base AS production
+
+# On copie uniquement le code source, sans le script de dev (phpinfo.php)
+COPY back/index.php /var/www/html/index.php

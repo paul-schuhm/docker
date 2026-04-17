@@ -1,0 +1,56 @@
+services:
+
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile.front
+    develop:
+      watch:
+      - action: sync
+        path: ./front
+        target: /usr/local/apache2/htdocs/
+    environment:
+      - BACK_PORT=${BACK_PORT}
+    restart: always
+
+  back:
+    build:
+      context: .
+      dockerfile: Dockerfile.back
+      target: development
+    develop:
+      watch:
+      - action: sync
+        path: ./back
+        target: /var/www/html/
+    secrets:
+      - db-password
+    env_file :
+      - .env
+    restart: always
+    volumes:
+      - ./php.ini.dev:/usr/local/etc/php/conf.d/php-dev.ini:ro
+  db:
+    secrets:
+      - db-password  
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    container_name: ${PROJECT_NAME}-adminer
+    ports:
+      - 8080:8080
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    restart: always
+    ports:
+      - "${SMTP_MAIL_PORT}:1025"
+      - "${HTTP_MAIL_PORT}:8025"
+    container_name: ${PROJECT_NAME}-mailhog
+
+secrets:
+  db-password:
+    file: db/password_dev.txt
